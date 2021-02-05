@@ -1,11 +1,5 @@
-import React from 'react';
+import React from "react";
 
-function SearchContext(props) {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+const SearchContext = React.createContext();
 
 export default SearchContext;
