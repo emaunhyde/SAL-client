@@ -1,11 +1,11 @@
 import React from 'react';
 
-function SearchContext(props) {
+function Header(props) {
     return (
         <div>
-            
+            <h1>Header</h1>
         </div>
     );
 }
 
-export default SearchContext;
+export default Header;
