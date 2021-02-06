@@ -27,12 +27,12 @@ function Searchbar() {
   // when user clicks search button
   function handleSubmit(event) {
     event.preventDefault();
+    setSearchString(event.target.value);
     getResults(searchString).then((result) => {
       setSearchResults(result);
+      setSearchComplete(true);
+      console.log(searchResults);
     });
-    setSearchComplete(true);
-    setSearching(false);
-    setSearchString("");
   }
 
   // when user types into form
@@ -40,29 +40,22 @@ function Searchbar() {
     setSearchString(event.target.value);
   }
 
-  if (searchComplete === false) {
-    return (
-      <div className="form">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id="input"
-            placeholder="what are we making today?"
-            name="searchterm"
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" className="searchbtn">
-            search
-          </button>
-        </form>
-      </div>
-    );
-  }
   return (
-    <>
-      <ProjectsGallery results={searchResults} />
-    </>
+    <div className="form">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          id="input"
+          placeholder="what are we making today?"
+          name="searchterm"
+          onChange={handleChange}
+          required
+        />
+        <button type="submit" className="searchbtn">
+          search
+        </button>
+      </form>
+    </div>
   );
 }
 
